@@ -19,7 +19,27 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return [];
+        return [
+            'Lovata\BaseCode\Components\SiteSettings' => 'SiteSettings',
+        ];
+    }
+
+    /**
+     * Register settings
+     * @return array
+     */
+    public function registerSettings()
+    {
+        return [
+            'config'    => [
+                'label'       => 'lovata.basecode::lang.menu.settings',
+                'description' => '',
+                'icon'        => 'icon-cogs',
+                'class'       => 'Lovata\BaseCode\Models\Settings',
+                'permissions' => ['lovata-site-settings'],
+                'order'       => 100,
+            ],
+        ];
     }
 
     /**
